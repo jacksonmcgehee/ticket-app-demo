@@ -4,7 +4,6 @@ const Tickets = async () => {
 
     const tickets = await prisma.ticket.findMany();
 
-    console.log(tickets);
     return (
         <div>
         <h1>Tickets</h1>
