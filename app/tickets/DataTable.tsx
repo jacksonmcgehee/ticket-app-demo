@@ -1,6 +1,7 @@
 import { Ticket } from '@prisma/client';
 import { Table, TableBody, TableCell, TableHeader, TableRow, TableHead } from '@/components/ui/table';
 import TicketStatusBadge from '@/components/TicketStatusBadge';
+import TicketPriority from '@/components/TicketPriority';
 
 interface Props {
     tickets: Ticket[];
@@ -20,7 +21,7 @@ const DataTable = ({tickets}: Props) => {
                                 <div className="flex justify-center">Status</div>
                             </TableHead>
                             <TableHead>
-                                Priority
+                            <div className="flex justify-center">Priority</div>
                             </TableHead>
                             <TableHead>
                                 Created At
@@ -39,7 +40,9 @@ const DataTable = ({tickets}: Props) => {
                                     </div>
                                 </TableCell>
                                 <TableCell>
-                                    {ticket.priority}
+                                    <div className="flex justify-center">
+                                        <TicketPriority priority={ticket.priority} />
+                                    </div>
                                 </TableCell>
                                 <TableCell>
                                     {ticket.createdAt.toLocaleDateString("en-US", {
