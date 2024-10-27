@@ -12,6 +12,7 @@ import TicketPriority from "@/components/TicketPriority";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import ReactMarkDown from "react-markdown";
+import DeleteTicketButton from "./DeleteTicketButton";
   
 
 interface Props {
@@ -62,10 +63,7 @@ const TicketDetail = ({ticket}: Props) => {
                     href={`/tickets/edit/${ticket.id}`}
                     className={`${buttonVariants({ variant: "default" })} mt-4`}
                 >Edit Ticket</Link>
-                <Link
-                    href={`/tickets/edit/${ticket.id}`}
-                    className={`${buttonVariants({ variant: "default" })} mt-4`}
-                >Delete Ticket</Link>
+                <DeleteTicketButton ticketId={ticket.id}/>
             </div>
         </div>
 
