@@ -1,4 +1,5 @@
 import prisma from '@/prisma/db';
+import DataTable from './DataTable';
 
 const Tickets = async () => {
 
@@ -6,7 +7,7 @@ const Tickets = async () => {
 
     return (
         <div>
-        <h1>Tickets</h1>
+        <h1><DataTable tickets={tickets} /></h1>
         </div>
     );
 };
