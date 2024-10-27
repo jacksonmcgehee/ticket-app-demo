@@ -1,5 +1,7 @@
 import prisma from '@/prisma/db';
 import DataTable from './DataTable';
+import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button';
 
 const Tickets = async () => {
 
@@ -7,7 +9,8 @@ const Tickets = async () => {
 
     return (
         <div>
-        <h1><DataTable tickets={tickets} /></h1>
+            <Link href="/tickets/new" className={buttonVariants({ variant: "default" })}>Create New Ticket</Link>
+            <DataTable tickets={tickets} />
         </div>
     );
 };
