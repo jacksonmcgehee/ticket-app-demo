@@ -40,7 +40,7 @@ const UserForm = ({ user }: Props) => {
             }
             setIsSubmitting(false);
 
-            router.push("/tickets");
+            router.push("/users");
             router.refresh();
         } catch (error) {
             setError('An error occurred while creating the user.');
@@ -106,8 +106,9 @@ const UserForm = ({ user }: Props) => {
                                         <FormControl>
                                             <SelectTrigger>
                                                 <SelectValue
-                                                    placeholder="Rolw..."
+                                                    placeholder="Role..."
                                                     defaultValue={user?.role}
+                                                    className="w-[180px]"
                                                 />
                                             </SelectTrigger>
                                         </FormControl>
