@@ -2,7 +2,6 @@ import DashChart from "@/components/DashChart";
 import DashRecentTickets from "@/components/DashRecentTickets";
 import prisma
  from "@/prisma/db";
-import { group } from "console";
 
 const Dashboard = async () => {
 

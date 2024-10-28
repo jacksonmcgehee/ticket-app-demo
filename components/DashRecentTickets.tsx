@@ -2,7 +2,6 @@ import { Prisma } from "@prisma/client";
 import {
     Card,
     CardContent,
-    CardDescription,
     CardHeader,
     CardTitle,
   } from "@/components/ui/card";
