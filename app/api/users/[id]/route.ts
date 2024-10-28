@@ -35,9 +35,11 @@ export async function PATCH(request: NextRequest, {params}: Props) {
     }
 
     // Hash the password if it's being updated
-    if (body.password) {
+    if (body.password && body.password != "") {
         const hashPassword = await bcrypt.hash(body.password, 10);
         body.password = hashPassword;
+    } else {
+        delete body.password; // Remove password if not updating
     }
 
     const updatedUser = await prisma.user.update({
