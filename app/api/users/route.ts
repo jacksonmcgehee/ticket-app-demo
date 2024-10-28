@@ -2,8 +2,21 @@ import { NextRequest, NextResponse } from "next/server";
 import { userSchema } from "@/ValidationSchemas/users";
 import prisma from "@/prisma/db";
 import bcrypt from "bcryptjs";
+import { getServerSession } from "next-auth";
+import options from "../auth/[...nextauth]/options";
 
 export async function POST(request: NextRequest) {
+
+    const session = await getServerSession(options);
+
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if (session.user.role !== "ADMIN") {
+        return NextResponse.json({ error: "Not Admin" }, { status: 403 });
+    }
+    
     const body = await request.json()
     const validation = userSchema.safeParse(body);
 
